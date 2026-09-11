@@ -1,0 +1,11 @@
+services:
+  musicbot:
+    build: .
+    restart: unless-stopped
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      ALLOWED_USER_ID: ${ALLOWED_USER_ID}
+      SUB_LANGS: ${SUB_LANGS:-es.*,en.*}
+      DOWNLOAD_DIR: /data
+    volumes:
+      - ./data:/data
